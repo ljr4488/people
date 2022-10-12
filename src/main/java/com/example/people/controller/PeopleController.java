@@ -9,4 +9,7 @@ public class PeopleController {
     public String HelloWorld() {
         return "HelloWorld";
     }
+
+    @GetMapping(value = "/api/World")
+    public String PeopleWorld() { return "PeoPleWorld"; }
 }
