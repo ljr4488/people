@@ -1,10 +1,8 @@
-package com.example.fastcampus.demo.domain;
+package com.example.people.domain;
 
 import java.time.LocalDate;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 import lombok.*;
 
@@ -24,15 +22,14 @@ public class Person {
 	private String name;
 	@NonNull
 	private int age;
-	private String hobby;
+	@NonNull
 	private String bloodType;
+	private String hobby;
 	private String address;
 	private LocalDate birth;
 	private String job;
-	private boolean block;
-	private String blockReason;
-	private LocalDate blockStartDate;
-	private LocalDate blockEndDate;
+	@OneToOne(cascade = CascadeType.PERSIST)
+	private Block block;
 
 	public boolean equals(Object object) {
 		if(object == null) {

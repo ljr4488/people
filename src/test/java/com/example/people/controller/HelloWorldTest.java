@@ -1,4 +1,4 @@
-package com.example.fastcampus.demo.controller;
+package com.example.people.controller;
 
 import static org.junit.jupiter.api.Assertions.*;
 

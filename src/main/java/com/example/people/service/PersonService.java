@@ -1,9 +1,9 @@
-package com.example.fastcampus.demo.service;
+package com.example.people.service;
 
-import com.example.fastcampus.demo.domain.Block;
-import com.example.fastcampus.demo.domain.Person;
-import com.example.fastcampus.demo.repository.BlockRepository;
-import com.example.fastcampus.demo.repository.PersonRepository;
+import com.example.people.domain.Block;
+import com.example.people.domain.Person;
+import com.example.people.repository.BlockRepository;
+import com.example.people.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,11 +19,8 @@ public class PersonService {
 
     public List<Person> getPeopleExcludeBlocks() {
         List<Person> people = personRepository.findAll();
-        List<Block> blocks = blockRepository.findAll();
-
-        List<String> blockNames = blocks.stream().map(Block::getName).collect(Collectors.toList());
 
         return people.stream().filter(
-                person -> !blockNames.contains(person.getName())).collect(Collectors.toList());
+                person -> person.getBlock() == null).collect(Collectors.toList());
     }
 }

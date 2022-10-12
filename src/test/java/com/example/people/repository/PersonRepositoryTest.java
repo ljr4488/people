@@ -1,4 +1,4 @@
-package com.example.fastcampus.demo.repository;
+package com.example.people.repository;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.example.fastcampus.demo.domain.Person;
+import com.example.people.domain.Person;
 
 @SpringBootTest
 class PersonRepositoryTest {
@@ -40,8 +40,8 @@ class PersonRepositoryTest {
 
 	@Test
 	void constructorTest() {
-		Person person1 = new Person("KIM", 100);
-		Person person2 = new Person("KIM", 100);
+		Person person1 = new Person("KIM", 100, "A");
+		Person person2 = new Person("KIM", 100, "A");
 
 		System.out.println(person1.equals(person2));
 		System.out.println(person1.hashCode());
