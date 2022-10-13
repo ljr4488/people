@@ -3,8 +3,11 @@ package com.example.people.domain;
 import java.time.LocalDate;
 
 import javax.persistence.*;
+import javax.validation.Valid;
 
+import com.example.people.domain.dto.Birthday;
 import lombok.*;
+import org.springframework.validation.annotation.Validated;
 
 @Entity
 @Getter
@@ -26,9 +29,11 @@ public class Person {
 	private String bloodType;
 	private String hobby;
 	private String address;
-	private LocalDate birth;
+	@Valid
+	@Embedded
+	private Birthday birthday;
 	private String job;
-	@OneToOne(cascade = CascadeType.PERSIST)
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private Block block;
 
 	public boolean equals(Object object) {
